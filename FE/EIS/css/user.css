@@ -1,0 +1,116 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+body{
+  overflow-x: hidden;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+}
+
+/*HEADER*/
+.navbar-nav {
+  justify-content: flex-end;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.icon > i {
+  width: 40px;
+  height: 30px;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.nav-item {
+  font-family: "Quicksand", sans-serif;
+  font-size: 17px;
+}
+
+.label_menu {
+  background-color: #e62e05;
+  color: white;
+  padding: 0px 3px;
+  font-size: 8px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 0px;
+  left: none;
+}
+
+.label_menu:before{
+  content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    display: inline-block;
+    top: 100%;
+    border-top: 4px solid #e62e05;
+    border-right: 4px solid transparent;
+}
+
+.dropdown {
+  font-family: "Quicksand", sans-serif;
+  padding-left: 30px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.dropdown-item:hover {
+  color: #ffa6a8;
+  background: white;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown > .dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
+}
+
+.col-sm-7 {
+  font-size: 13px;
+}
+
+.container-fluid-v1{
+    height: 70px;
+}
+
+/* TABLE */
+.edit{
+  color: #22cc62 !important;
+  padding: 5px;
+  border: 1px solid hsl(143, 71%, 47%);
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: white;
+}
+
+
+
+.edit:hover{
+  background-color: #22cc62;
+  color: white !important;
+}
+
+a:hover{
+  text-decoration: none !important;
+}
+
+.delete{
+  color: red !important;
+  padding: 5px;
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.delete:hover{
+  background-color: red;
+  color: white !important;
+}

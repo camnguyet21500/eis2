@@ -1,0 +1,29 @@
+server:
+  port: 9095
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders:
+              - "*"
+            allowedMethods:
+              - "*"
+      routes:
+        - id: userModule
+          uri: lb://user
+          predicates:
+            - Path=/users/**
+        - id: invoiceModule
+          uri: lb://invoice
+          predicates:
+            - Path=/typeInvoices/**, /invoices/**, /companies/**
+

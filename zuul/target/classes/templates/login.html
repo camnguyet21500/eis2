@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- FONT AWESOME -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
+    <!-- SCRIPT -->
+    <script src="script/script.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body class="body">
+<img class="logo" src="/img/logo.jpg">
+<div class="container" >
+    <h2>E-INVOICE</h2>
+    <form class="login" method="post">
+        <h3>Login</h3>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input id='username' type="text" class="form-control"  placeholder="Enter username">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input id='password' type="password" class="form-control"  placeholder="Enter password">
+        </div>
+        <button id="submit" type="submit" class="btn btn-dark">LOGIN</button>
+        <div class="login-or">
+            <span class="or-line"></span>
+            <span class="span-or">OR</span>
+        </div>
+        <div class="register">
+            Don't have an account yet?
+            <a href="register.html"><b>Register</b></a>
+        </div>
+    </form>
+</div>
+</body>
+<style>
+
+@import url("https://fonts.googleapis.com/css2?family=El+Messiri&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+.body{
+  overflow-x: hidden;
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+    background-color: #f7f8f9;
+}
+
+.logo{
+    width: 15%;
+    margin-top: 20px;
+}
+
+.login{
+    margin: auto;
+    background-color: white;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.btn-dark{
+    background-color: black !important;
+    color: white;
+}
+
+.btn-dark:hover{
+    background-color: #a09d9d !important;
+    color: white !important;
+}
+
+.login-or{
+    color: #757575;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: relative;
+}
+
+.or-line{
+    background-color: #e5e5e5;
+    height: 1px;
+    margin-bottom: 0;
+    margin-top: 0;
+    display: block;
+}
+
+.span-or{
+    background-color: #fff;
+    display: block;
+    left: 50%;
+    margin-left: -20px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 0;
+    width: 42px;
+}
+
+.register a{
+    color: black;
+}
+
+.register a :hover{
+    color: black;
+}
+</style>
+</html>

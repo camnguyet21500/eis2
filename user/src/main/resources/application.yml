@@ -1,0 +1,32 @@
+server:
+  port: 9099
+
+spring:
+  application:
+    name: user
+  datasource:
+    url: jdbc:mysql://localhost:3306/user
+    username: root
+    password: root
+  jpa.hibernate.ddl-auto: update
+  jackson.serialization.WRITE_DATES_AS_TIMESTAMPS: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+
+  spring.mail.host: smtp.gmail.com
+  spring.mail.port: 587
+  spring.mail.username: camnguyet.huflit@gmail.com
+  spring.mail.password: liverpool2152000
+  spring.mail.properties.mail.smtp.auth: true
+  spring.mail.properties.mail.smtp.starttls.enable: true
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</header>
+<body>
+
+<div id="demo">
+    <h2>The XMLHttpRequest Object</h2>
+    <label id="test"></label>
+    <input type="text" id="Id" name="Id">
+    <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+<script>
+function loadDoc () {
+    axios.delete('/invoices/' + document.getElementById("Id").value)
+    .then(function (response) {
+      document.getElementById('test').innerHTML = response.data.name_service;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+</script>
+
+</body>
+</html>

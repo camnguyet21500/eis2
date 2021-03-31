@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body class="body" ng-app="myApp" ng-controller="studentController" ng-cloak>
+  <img class="logo" src="/img/logo.jpg">
+    <div class="container" >
+        <h2>E-INVOICE</h2>
+    <form ng-submit="createUser()" class="login">
+      <h3>Register</h3>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Username</label>
+          <input ng-model="user.name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputConfirmPassword1">Confirm Password</label>
+          <input type="password" class="form-control" id="exampleInputConfirmPassword1" placeholder="Confirm password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFullname1">Fullname</label>
+            <input type="text" class="form-control" id="exampleInputFullname1" placeholder="Enter fullname">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputAddress1">Address</label>
+            <input type="address" class="form-control" id="exampleInputAddress1" placeholder="Enter address">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        </div>
+        <button ng-show="submit" type="submit" class="btn btn-dark">LOGIN</button>
+        <div class="login-or">
+          <span class="or-line"></span>
+          <span class="span-or">OR</span>
+        </div>
+        <div class="register">
+          Already have an account?
+          <a href="login.html"><b>Login</b></a>
+        </div>
+      </form>
+    </div>
+</body>
+</html>

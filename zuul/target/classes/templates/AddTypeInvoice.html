@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSERT TYPE INVOICE | E-INVOICE SYSTEM</title>
+
+    <!--JS library-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+            integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+            crossorigin="anonymous"></script>
+
+    <!--CDN CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+
+    <!-- JS -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+
+    <!-- ION ICON -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/5.2.3/ionicons.min.js"></script>
+
+    <!--Angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<script>
+    var app = angular.module("myApp", []);
+    app.controller("proCtrl", function ($scope, $http) {
+        //SHOW TYPE INVOICE
+        $http.get("http://localhost:8662/is/typeInvoices").then(function (reponse) {
+            $scope.list_typeInvoices = reponse.data;
+        });
+
+        //Buttons Settings
+        $scope.submit = true;
+
+        //CREATE TYPE INVOICE
+        $scope.createTypeInvoice = function () {
+            //$http POST function
+            $http({
+                method: "POST",
+                url: "http://localhost:8662/is/typeInvoices",
+                data: $scope.typeInvoice,
+            }).then(
+                function successCallback(response) {
+                    $scope.list_typeInvoices.push(response.data);
+                    alert("Successfully!");
+                },
+                function errorCallback(response) {
+                    alert("Error. Try Again!");
+                }
+            );
+        };
+    });
+
+</script>
+
+<body ng-app="myApp" ng-controller="proCtrl">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid container-fluid-v1">
+            <img src="img/E-Invoice-logo.png" alt="" style="width: 10%" />
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <div class="dropdown">
+                        <a class="nav-link text-body" href="/home">HOME</a>
+                    </div>
+                    <div class="dropdown">
+                        <a class="nav-link text-body" href="/showUser">USER</a>
+                        <div class="dropdown-menu dropdown-menu-left border-0 rounded-0"
+                             aria-labelledby="dropdownMenuButton" style="width: 700px">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-secondary" href="/addUser">Add User</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a class="nav-link text-body" href="/dashboard">INVOICE
+                            <span class="absolute label_menu">HOT</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-left border-0 rounded-0"
+                             aria-labelledby="dropdownMenuButton" style="width: 700px">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <a class="dropdown-item" href="">Action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-secondary" href="/addInvoice">Add Invoice</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="nav-link text-body" href="/showTypeInvoice">TYPE INVOICE
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-left border-0 rounded-0"
+                             aria-labelledby="dropdownMenuButton" style="width: 700px">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <a class="dropdown-item" href="">Action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-secondary" href="/addTypeInvoice">Add Type
+                                        Invoice</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="nav-link text-body" href="/showCompany">COMPANY
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-left border-0 rounded-0"
+                             aria-labelledby="dropdownMenuButton" style="width: 700px">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <a class="dropdown-item" href="">Action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-secondary" href="/addCompany">Add Company</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <div class="icon">
+                <i class="fas fa-search"></i>
+                <i class="far fa-user"></i>
+                <i class="far fa-heart"></i>
+                <i class="fas fa-dolly"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+<div>
+    <form ng-submit="createTypeInvoice()" class="login" style="width: 50%; margin: auto;">
+        <h3>CREATE TYPE INVOICE</h3>
+        <div class="form-group">
+            <label>Code</label>
+            <input ng-model="typeInvoice.code" type="text" class="form-control"
+                   placeholder="Please enter the code of the invoice type">
+        </div>
+        <div class="form-group">
+            <label>Name Invoice</label>
+            <input ng-model="typeInvoice.name_invoice" type="text" class="form-control"
+                   placeholder="Please enter the name of the invoice type">
+        </div>
+        <div class="form-group">
+            <label>VAT</label>
+            <input ng-model="typeInvoice.vat" type="number" class="form-control"
+                   placeholder="Please enter VAT of the invoice type">
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-success btn-sm" ng-show="submit"
+               style="margin-bottom: 20px;" />
+    </form>
+</div>
+</body>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+    body {
+        overflow-x: hidden;
+        font-family: "Quicksand", sans-serif;
+        text-align: center;
+    }
+
+    /*HEADER*/
+    .navbar-nav {
+        justify-content: flex-end;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .icon>i {
+        width: 40px;
+        height: 30px;
+    }
+
+    .navbar-collapse {
+        flex-grow: 0;
+    }
+
+    .nav-item {
+        font-family: "Quicksand", sans-serif;
+        font-size: 17px;
+    }
+
+    .label_menu {
+        background-color: #e62e05;
+        color: white;
+        padding: 0px 3px;
+        font-size: 8px;
+        font-weight: 600;
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        top: 0px;
+        left: none;
+    }
+
+    .label_menu:before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        display: inline-block;
+        top: 100%;
+        border-top: 4px solid #e62e05;
+        border-right: 4px solid transparent;
+    }
+
+    .dropdown {
+        font-family: "Quicksand", sans-serif;
+        padding-left: 30px;
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+        color: #ffa6a8;
+        background: white;
+    }
+
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+        /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+    }
+
+    .col-sm-7 {
+        font-size: 13px;
+    }
+
+    .container-fluid-v1 {
+        height: 70px;
+    }
+
+    /* TABLE */
+    .edit {
+        color: #22cc62 !important;
+        padding: 5px;
+        border: 1px solid hsl(143, 71%, 47%);
+        border-radius: 5px;
+        margin-right: 10px;
+        background-color: white;
+    }
+
+
+
+    .edit:hover {
+        background-color: #22cc62;
+        color: white !important;
+    }
+
+    a:hover {
+        text-decoration: none !important;
+    }
+
+    .delete {
+        color: red !important;
+        padding: 5px;
+        border: 1px solid red;
+        border-radius: 5px;
+        background-color: white;
+    }
+
+    .delete:hover {
+        background-color: red;
+        color: white !important;
+    }
+</style>
+
+</html>

@@ -1,0 +1,6 @@
+com\application\zuulproxy\model\Users.class
+com\application\zuulproxy\controller\HomeController.class
+com\application\zuulproxy\service\UserService.class
+com\application\zuulproxy\ZuulproxyApplication.class
+com\application\zuulproxy\api\UserApi.class
+com\application\zuulproxy\config\WebSecurityConfig.class
